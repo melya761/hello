@@ -7,6 +7,9 @@ def go_magic():
     now = datetime.datetime.now()
     return "Hello! {0}".format(now)
 
+def application(env, start_response):
+    start_responce('200 OK', [('Content-Type','text/html')])
+    return [do_magic()]
 if __name__ == "__main__":
     if 'REQUEST_URI' in os.environ:
         print("Content-type: text/html\n\n")
